@@ -9,26 +9,26 @@ import axios from 'axios';
 function Signup() {
     
     const [values, setValues] = useState({nombre:'',apelli_pat:'',apelli_mat:'',dni:'',telefono:''
-        ,fecha_nac:'',nacionalidad:'',genero:'',  email:'', usuario:'', password:''})
+        ,fecha_nac:'',nacionalidad:'',genero:'',  email:'', usuario:'', password:''});
     
     const navigate = useNavigate();
 
-    const [errors,setErrors] = useState({})
+    const [errors,setErrors] = useState({});
     const handleInput=(event)=>{
         setValues(prev=>({...prev, [event.target.name]:[event.target.value]}))
-    }
+    };
 
     const handleSubmit=(event)=>{
         event.preventDefault();
         setErrors(Validation(values));
-        if(errors.nombre === "" &&errors.email==="" && errors.password ===""){
+        if(errors.nombre === "" && errors.email === "" && errors.password === ""){
             axios.post("http://localhost:3008/signup", values)
             .then(res=>{
                 navigate('');
             })
             .catch(err=>console.log(err));
         }
-    }
+    };
 
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>

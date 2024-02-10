@@ -22,41 +22,41 @@ app.post("/signup", (req, res) => {
     const fecha_nac = req.body.fecha_nac;
     const nacionalidad = req.body.nacionalidad;
     const genero = req.body.genero;
+    const email = req.body.email;
     const usuario = req.body.usuario;
-    const pasword = req.body.pasword;
+    const pasword = req.body.password;
     db.query('INSERT INTO USUARIO(dni,nombre,apellidoP,apellidoM,fecha_nac,telefono,genero,nacionalidad,email,contrasena) VALUES(?,?,?,?,?,?,?,?,?,?)',
-        [dni, nombre, apelli_pat, apelli_mat, fecha_nac, telefono, genero, nacionalidad, usuario, pasword], (err, data) => {
+        [dni, nombre, apelli_pat, apelli_mat, fecha_nac, telefono, genero, nacionalidad, email, usuario, pasword], (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).send("Error al procesar la solicitud");
             } else {
                 res.status(200).send("Te registraste con éxito!");
             }
-            return res.json(data)
+            return res.json(data); 
         }
     );
 });
+
 app.post("/login", (req, res) => {
+    const usuario = req.body.usuario;
+    const password = req.body.password;
    
-    const sql = "SELECT * FROM usuario WHERE Usuario_ID = ? AND pasword = ? ";
-    db.query(sql,[req.body.email,req.body.pasword ], (err, data) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send("Error al procesar la solicitud");
-            } 
-            if(data.length > 0){
-                return res.json("Iniciaste sesión con éxito!")
+    const sql = "SELECT * FROM usuario WHERE Usuario_ID = ? AND pasword = ?;";
+    db.query(sql, [usuario, password], (err, data) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Error al procesar la solicitud");
+        } else {
+            if (data.length > 0) {
+                return res.json("Iniciaste sesión con éxito!");
+            } else {
+                return res.json("Usuario o contraseña incorrectos");
             }
-            else{
-                return res.json("Algo fallo")
-            }
-            
         }
-    );
+    });
 });
 
-
-
-app.listen(3001,()=>{
-    console.log("Corriendo en el puerto 3001")
+app.listen(3008,()=>{
+    console.log("Corriendo en el puerto 3008")
 });
