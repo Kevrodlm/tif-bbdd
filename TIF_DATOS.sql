@@ -1,3 +1,4 @@
+USE venta_seguros;
 
 INSERT INTO usuario (Usuario_ID, pasword) VALUES
 ('alice_123', 'password1'),
