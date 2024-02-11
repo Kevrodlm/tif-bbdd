@@ -97,11 +97,22 @@ function Signup() {
                         {errors.nombre && <span className='text-danger'>{errors.nombre}</span>}
                     </div>
 
-                    <div className='mb-3'>
-                        <label htmlFor="name"><strong>Género</strong></label>
-                        <input type="text" placeholder='Ingresa tu Género' name='genero' onChange={handleInput} className='form-control rounded-0'/>
-                        {errors.nombre && <span className='text-danger'>{errors.nombre}</span>}
+                    <div className="mb-3">
+                        <label htmlFor="genero"><strong>Género</strong></label>
+                        <select
+                            className="form-select"
+                            id="genero"
+                            onChange={(event) => {
+                                handleInput(event); 
+                            }}
+                            defaultValue=""
+                        >
+                            <option value="" disabled hidden>Selecciona un género</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
                     </div>
+
 
                     <div className='mb-3'>
                         <label htmlFor="email"><strong>Dirección</strong></label>
