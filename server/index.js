@@ -14,29 +14,32 @@ const db = mysql.createConnection({
 });
 
 app.post("/signup", (req, res) => {
+    const usuario = req.body.usuario;
+    const pasword = req.body.password;
     const dni = req.body.dni;
     const nombre = req.body.nombre;
     const apelli_pat = req.body.apelli_pat;
     const apelli_mat = req.body.apelli_mat;
-    const telefono = req.body.telefono;
     const fecha_nac = req.body.fecha_nac;
-    const nacionalidad = req.body.nacionalidad;
     const genero = req.body.genero;
+    const nacionalidad = req.body.nacionalidad;
     const email = req.body.email;
-    const usuario = req.body.usuario;
-    const pasword = req.body.password;
-    db.query('INSERT INTO USUARIO(dni,nombre,apellidoP,apellidoM,fecha_nac,telefono,genero,nacionalidad,email,contrasena) VALUES(?,?,?,?,?,?,?,?,?,?)',
-        [dni, nombre, apelli_pat, apelli_mat, fecha_nac, telefono, genero, nacionalidad, email, usuario, pasword], (err, data) => {
+    const direccion = req.body.direccion;
+    const telefono = req.body.telefono;
+    
+    db.query('CALL AgregarCliente(?,?,?,?,?,?,?,?,?,?,?,?) ',
+        [usuario, pasword, dni, nombre, apelli_pat, apelli_mat, fecha_nac, genero, nacionalidad, email, direccion, telefono,], (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).send("Error al procesar la solicitud");
             } else {
-                res.status(200).send("Te registraste con éxito!");
+                const mensaje = data[0][0].Resultado;
+                return res.json(mensaje);
             }
-            return res.json(data); 
         }
     );
 });
+
 
 app.post("/login", (req, res) => {
     const usuario = req.body.usuario;

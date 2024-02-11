@@ -1,79 +1,90 @@
 USE venta_seguros;
 
 INSERT INTO usuario (Usuario_ID, pasword) VALUES
-('alice_123', 'password1'),
-('bob_456', 'securepw2'),
-('charlie_789', 'strongpw3'),
-('diana_246', 'password4'),
-('eric_135', 'pwrd5'),
-('frank_579', 'password6'),
-('grace_468', 'psswrd7'),
-('harry_123', 'securepw8'),
-('irene_789', 'strngpw9'),
-('jack_357', 'passord10'),
-('kate_246', 'psword11'),
-('lucas_159', 'strogpw12'),
-('megan_789', 'passwo13'),
-('nathan_456', 'pword14'),
-('olivia_123', 'securepw15'),
-('peter_579', 'pssw0rd16'),
-('quinn_468', 'strngpw17'),
-('rachel_246', 'passwd18'),
-('sam_135', 'ssword19'),
-('tina_789', 'stongpw20');
+('john_doe', 'password1'),
+('jane_smith', 'password2'),
+('bob_jones', 'password3'),
+('emily_wilson', 'password4'),
+('mike_brown', 'password5'),
+('sarah_miller', 'password6'),
+('chris_young', 'password7'),
+('lisa_davis', 'password8'),
+('kevin_anderson', 'password9'),
+('amanda_taylor', 'password10'),
+('daniel_clark', 'password11'),
+('laura_martinez', 'password12'),
+('ryan_harris', 'password13'),
+('natalie_white', 'password14'),
+('matt_thompson', 'password15'),
+('olivia_lee', 'password16'),
+('tyler_rodriguez', 'password17'),
+('jessica_martin', 'password18'),
+('alex_garcia', 'password19'),
+('samantha_robinson', 'password20'),
+('justin_hall', 'password21'),
+('ashley_wood', 'password22'),
+('brian_carter', 'password23'),
+('jennifer_king', 'password24'),
+('eric_murphy', 'password25'),
+('michelle_jackson', 'password26'),
+('jacob_torres', 'password27'),
+('kelly_adams', 'password28'),
+('patrick_evans', 'password29'),
+('hannah_thomas', 'password30'),
+('brandon_rivera', 'password31'),
+('elizabeth_ramirez', 'password32'),
+('nathan_cook', 'password33'),
+('stephanie_diaz', 'password34'),
+('adam_stewart', 'password35'),
+('lauren_perez', 'password36'),
+('jason_morris', 'password37'),
+('angela_ortiz', 'password38'),
+('gregory_cooper', 'password39'),
+('tiffany_nguyen', 'password40');
 
-SELECT * FROM usuario;
+INSERT INTO persona (DNI, Nombre, ApellidoP, ApellidoM, Fecha_nacimiento, Genero, Nacionalidad, Email, Seguro_user) VALUES
+(1, 'Juan', 'Pérez', 'González', '1990-05-15', 'M', 'Mexicana', 'juan.perez@example.com', 'john_doe'),
+(2, 'María', 'Martínez', 'López', '1985-09-23', 'F', 'Mexicana', 'maria.martinez@example.com', 'jane_smith'),
+(3, 'Carlos', 'Sánchez', 'Rodríguez', '1988-12-10', 'M', 'Mexicana', 'carlos.sanchez@example.com', 'bob_jones'),
+(4, 'Ana', 'García', 'Fernández', '1992-03-28', 'F', 'Española', 'ana.garcia@example.com', 'emily_wilson'),
+(5, 'Pedro', 'López', 'Hernández', '1987-07-03', 'M', 'Mexicana', 'pedro.lopez@example.com', 'mike_brown'),
+(6, 'Laura', 'Díaz', 'Martínez', '1995-01-20', 'F', 'Mexicana', 'laura.diaz@example.com', 'sarah_miller'),
+(7, 'Pablo', 'Martín', 'Gómez', '1983-11-08', 'M', 'Española', 'pablo.martin@example.com', 'chris_young'),
+(8, 'Elena', 'Rodríguez', 'Pérez', '1980-06-17', 'F', 'Española', 'elena.rodriguez@example.com', 'lisa_davis'),
+(9, 'Diego', 'Ruiz', 'Sánchez', '1989-04-25', 'M', 'Mexicana', 'diego.ruiz@example.com', 'kevin_anderson'),
+(10, 'Sofía', 'Gómez', 'Fernández', '1991-08-12', 'F', 'Española', 'sofia.gomez@example.com', 'amanda_taylor'),
+(11, 'Luis', 'Torres', 'García', '1986-02-19', 'M', 'Mexicana', 'luis.torres@example.com', 'daniel_clark'),
+(12, 'Carmen', 'Ortega', 'López', '1993-06-30', 'F', 'Española', 'carmen.ortega@example.com', 'laura_martinez'),
+(13, 'Javier', 'Vázquez', 'Sánchez', '1984-09-05', 'M', 'Mexicana', 'javier.vazquez@example.com', 'ryan_harris'),
+(14, 'Paula', 'Reyes', 'González', '1997-04-14', 'F', 'Mexicana', 'paula.reyes@example.com', 'natalie_white'),
+(15, 'Mario', 'Jiménez', 'Martínez', '1981-10-22', 'M', 'Española', 'mario.jimenez@example.com', 'matt_thompson'),
+(16, 'Raquel', 'Dominguez', 'Pérez', '1982-12-03', 'F', 'Española', 'raquel.dominguez@example.com', 'olivia_lee'),
+(17, 'Fernando', 'Ferrer', 'Santos', '1990-07-18', 'M', 'Mexicana', 'fernando.ferrer@example.com', 'tyler_rodriguez'),
+(18, 'Marta', 'Iglesias', 'Hernández', '1988-05-09', 'F', 'Española', 'marta.iglesias@example.com', 'jessica_martin'),
+(19, 'José', 'Santana', 'Gómez', '1987-02-14', 'M', 'Española', 'jose.santana@example.com', 'alex_garcia'),
+(20, 'Isabel', 'Ramos', 'Martín', '1994-09-27', 'F', 'Española', 'isabel.ramos@example.com', 'samantha_robinson'),
+(21, 'Gabriel', 'Blanco', 'Hernández', '1983-11-30', 'M', 'Mexicana', 'gabriel.blanco@example.com', 'justin_hall'),
+(22, 'Lucía', 'Gutiérrez', 'Sánchez', '1996-03-08', 'F', 'Española', 'lucia.gutierrez@example.com', 'ashley_wood'),
+(23, 'Alberto', 'Crespo', 'Martínez', '1989-08-16', 'M', 'Española', 'alberto.crespo@example.com', 'brian_carter'),
+(24, 'Cristina', 'Pascual', 'González', '1992-01-31', 'F', 'Española', 'cristina.pascual@example.com', 'jennifer_king'),
+(25, 'David', 'Ferrer', 'Romero', '1985-07-24', 'M', 'Española', 'david.ferrer@example.com', 'eric_murphy'),
+(26, 'Nerea', 'Diez', 'Sanz', '1984-04-03', 'F', 'Española', 'nerea.diez@example.com', 'michelle_jackson'),
+(27, 'Óscar', 'Garrido', 'López', '1993-09-11', 'M', 'Española', 'oscar.garrido@example.com', 'jacob_torres'),
+(28, 'Celia', 'Vega', 'Ortega', '1990-11-28', 'F', 'Española', 'celia.vega@example.com', 'kelly_adams'),
+(29, 'Víctor', 'Marquez', 'Santana', '1987-06-06', 'M', 'Española', 'victor.marquez@example.com', 'patrick_evans'),
+(30, 'Miriam', 'Gimenez', 'Ortega', '1986-03-19', 'F', 'Española', 'miriam.gimenez@example.com', 'hannah_thomas'),
+(31, 'Andrés', 'Carmona', 'García', '1991-05-02', 'M', 'Española', 'andres.carmona@example.com', 'brandon_rivera'),
+(32, 'Esther', 'Durán', 'Fernández', '1988-08-09', 'F', 'Española', 'esther.duran@example.com', 'elizabeth_ramirez'),
+(33, 'Rubén', 'Calvo', 'Herrera', '1994-12-17', 'M', 'Española', 'ruben.calvo@example.com', 'nathan_cook'),
+(34, 'Adriana', 'Rojas', 'Gómez', '1995-02-20', 'F', 'Española', 'adriana.rojas@example.com', 'stephanie_diaz'),
+(35, 'Óscar', 'Soler', 'Navarro', '1983-10-07', 'M', 'Española', 'oscar.soler@example.com', 'adam_stewart'),
+(36, 'Lorena', 'Vicente', 'Sanchez', '1986-06-14', 'F', 'Española', 'lorena.vicente@example.com', 'lauren_perez'),
+(37, 'Alejandro', 'Gallardo', 'García', '1992-04-23', 'M', 'Española', 'alejandro.gallardo@example.com', 'jason_morris'),
+(38, 'Mónica', 'Miralles', 'Mora', '1987-01-06', 'F', 'Española', 'monica.miralles@example.com', 'angela_ortiz'),
+(39, 'Jorge', 'Lozano', 'López', '1990-08-03', 'M', 'Española', 'jorge.lozano@example.com', 'gregory_cooper'),
+(40, 'Sara', 'Pérez', 'Sanz', '1984-03-10', 'F', 'Española', 'sara.perez@example.com', 'tiffany_nguyen');
 
-INSERT INTO persona (Nombre, ApellidoP, ApellidoM, Fecha_nacimiento, Genero, Nacionalidad, Seguro_user)
-VALUES 
-('Alice', 'Smith', 'Johnson', '1990-05-15', 'F', 'Estadounidense', 'password1'),
-('Bob', 'Doe', 'Williams', '1985-08-20', 'M', 'Canadiense', 'securepw2'),
-('Charlie', 'Brown', 'Davis', '1988-12-10', 'M', 'Británica', 'strongpw3'),
-('Diana', 'Garcia', 'Martinez', '1993-04-25', 'F', 'Mexicana', 'password4'),
-('Eric', 'Jones', 'Wilson', '1987-06-30', 'M', 'Francesa', 'pwrd5'),
-('Frank', 'Miller', 'Taylor', '1995-10-05', 'M', 'Alemana', 'password6'),
-('Grace', 'Wilson', 'White', '1992-02-28', 'F', 'Italiana', 'psswrd7'),
-('Harry', 'Martinez', 'Clark', '1984-09-12', 'M', 'Española', 'securepw8'),
-('Irene', 'Johnson', 'Harris', '1989-07-18', 'F', 'Rusa', 'strngpw9'),
-('Jack', 'Brown', 'Anderson', '1991-11-03', 'M', 'China', 'passord10'),
-('Kate', 'Smith', 'Moore', '1994-03-08', 'F', 'Japonesa', 'psword11'),
-('Lucas', 'Garcia', 'Scott', '1986-01-20', 'M', 'Sudafricana', 'strogpw12'),
-('Megan', 'Johnson', 'Adams', '1996-07-05', 'F', 'Coreana', 'passwo13'),
-('Nathan', 'Brown', 'Robinson', '1983-11-15', 'M', 'Portuguesa', 'pword14'),
-('Olivia', 'Martinez', 'Miller', '1988-09-30', 'F', 'Australiana', 'securepw15'),
-('Peter', 'Jones', 'Young', '1990-12-25', 'M', 'India', 'pssw0rd16'),
-('Quinn', 'Garcia', 'Evans', '1993-06-14', 'F', 'Turca', 'strngpw17'),
-('Rachel', 'Smith', 'Cook', '1987-04-10', 'F', 'Neozelandesa', 'passwd18'),
-('Sam', 'Johnson', 'Lee', '1992-08-22', 'M', 'Argentina', 'ssword19'),
-('Tina', 'Brown', 'King', '1985-02-17', 'F', 'Chilena', 'stongpw20');
-
-SELECT * FROM persona;
-
-INSERT INTO persona_email (Email, DNI)
-VALUES 
-('alice@example.com', 1),
-('bob@example.com', 2),
-('charlie@example.com', 3),
-('diana@example.com', 4),
-('eric@example.com', 5),
-('frank@example.com', 6),
-('grace@example.com', 7),
-('harry@example.com', 8),
-('irene@example.com', 9),
-('jack@example.com', 10),
-('kate@example.com', 11),
-('lucas@example.com', 12),
-('megan@example.com', 13),
-('nathan@example.com', 14),
-('olivia@example.com', 15),
-('peter@example.com', 16),
-('quinn@example.com', 17),
-('rachel@example.com', 18),
-('sam@example.com', 19),
-('tina@example.com', 20);
-
-INSERT INTO persona_telefono (Telefono, DNI)
-VALUES 
+INSERT INTO persona_telefono (Telefono, DNI) VALUES
 (123456789, 1),
 (234567890, 2),
 (345678901, 3),
@@ -83,233 +94,340 @@ VALUES
 (789012345, 7),
 (890123456, 8),
 (901234567, 9),
-(123456780, 10),
-(234567891, 11),
-(345678912, 12),
-(456789023, 13),
-(567890134, 14),
-(678901245, 15),
-(789012356, 16),
-(890123467, 17),
-(901234578, 18),
-(123456789, 19),
-(234567890, 20);
+(102345678, 10),
+(210987654, 11),
+(323456789, 12),
+(434567890, 13),
+(545678901, 14),
+(656789012, 15),
+(767890123, 16),
+(878901234, 17),
+(989012345, 18),
+(109123456, 19),
+(112345678, 20),
+(212345678, 21),
+(312345678, 22),
+(412345678, 23),
+(512345678, 24),
+(612345678, 25),
+(712345678, 26),
+(812345678, 27),
+(912345678, 28),
+(222345678, 29),
+(322345678, 30),
+(422345678, 31),
+(522345678, 32),
+(622345678, 33),
+(722345678, 34),
+(822345678, 35),
+(922345678, 36),
+(333345678, 37),
+(433345678, 38),
+(533345678, 39),
+(633345678, 40);
 
-SELECT p.Nombre, p.ApellidoP, p.ApellidoM, p.Fecha_nacimiento, p.Genero, p.Nacionalidad, pe.Email, pt.Telefono
-FROM persona p
-LEFT JOIN persona_email pe ON p.DNI = pe.DNI
-LEFT JOIN persona_telefono pt ON p.DNI = pt.DNI;
+INSERT INTO cliente (DNI_cliente, Direccion) VALUES
+(1, 'Calle A, Ciudad X'),
+(2, 'Calle B, Ciudad Y'),
+(3, 'Calle C, Ciudad Z'),
+(4, 'Calle D, Ciudad W'),
+(5, 'Calle E, Ciudad V'),
+(6, 'Calle F, Ciudad U'),
+(7, 'Calle G, Ciudad T'),
+(8, 'Calle H, Ciudad S'),
+(9, 'Calle I, Ciudad R'),
+(10, 'Calle J, Ciudad Q'),
+(11, 'Calle K, Ciudad P'),
+(12, 'Calle L, Ciudad O'),
+(13, 'Calle M, Ciudad N'),
+(14, 'Calle N, Ciudad X'),
+(15, 'Calle O, Ciudad Y'),
+(16, 'Calle P, Ciudad Z'),
+(17, 'Calle Q, Ciudad W'),
+(18, 'Calle R, Ciudad V'),
+(19, 'Calle S, Ciudad U'),
+(20, 'Calle T, Ciudad T'),
+(21, 'Calle U, Ciudad S'),
+(22, 'Calle V, Ciudad R'),
+(23, 'Calle W, Ciudad Q'),
+(24, 'Calle X, Ciudad P'),
+(25, 'Calle Y, Ciudad O'),
+(26, 'Calle Z, Ciudad N'),
+(27, 'Calle 1, Ciudad M'),
+(28, 'Calle 2, Ciudad L'),
+(29, 'Calle 3, Ciudad K'),
+(30, 'Calle 4, Ciudad J');
 
-INSERT INTO empresa (Nombre)
-VALUES 
-('Entel'),
-('Robistar'),
-('Maracuya S.A.'),
-('Carritos Rapidos'),
-('SomosMozos'),
-('NOSE');
-
-SELECT Empresa_ID, Nombre
-FROM empresa;
-
-INSERT INTO registro_incidentes (Registro, Fecha, Hora, Empresa_ID)
-VALUES 
-('Incidente en la oficina principal', '2023-02-10', '08:45:00', 1),
-('Accidente en el almacén', '2023-03-15', '10:15:00', 2),
-('Problema con el sistema informático', '2023-03-20', '12:30:00', 2),
-('Incendio en el edificio', '2023-05-25', '14:20:00', 3),
-('Robo en las instalaciones', '2023-07-05', '16:45:00', 4),
-('Fuga de gas en el área de producción', '2023-07-10', '09:00:00', 6),
-('Inundación en la planta de fabricación', '2023-08-15', '11:25:00', 1),
-('Avería en la maquinaria', '2023-08-20', '13:40:00', 2),
-('Problema de seguridad cibernética', '2023-10-25', '15:55:00', 2),
-('Accidente laboral en la línea de ensamblaje', '2023-10-05', '08:30:00', 4),
-('Vandalismo en las instalaciones', '2023-12-10', '10:10:00', 6),
-('Daños por tormenta en el almacén', '2023-12-15', '12:20:00', 6),
-('Explosión en el laboratorio de investigación', '2023-10-20', '14:35:00', 1),
-('Interrupción del suministro eléctrico', '2023-11-25', '16:50:00', 2),
-('Problema de calidad del producto', '2023-05-05', '08:15:00', 3),
-('Asalto a mano armada en la entrada principal', '2023-06-10', '10:30:00', 4),
-('Incumplimiento de normativas de seguridad', '2023-06-15', '12:40:00', 5),
-('Escape químico en el laboratorio', '2023-03-20', '14:55:00', 6),
-('Amenaza de bomba en las instalaciones', '2023-06-25', '17:05:00', 1),
-('Derrame de productos químicos tóxicos', '2023-07-30', '09:20:00', 2);
-
-INSERT INTO reclamos (Reclamo, Fecha, Hora, Empresa_ID)
-VALUES 
-('Reclamo sobre el servicio de atención al cliente', '2023-02-10', '08:45:00', 1),
-('Reclamo sobre la calidad de un producto recibido', '2023-03-15', '10:15:00', 2),
-('Reclamo sobre el retraso en la entrega de un pedido', '2023-04-20', '12:30:00', 3),
-('Reclamo sobre el mal funcionamiento de un equipo', '2023-05-25', '14:20:00', 4),
-('Reclamo sobre un cargo indebido en la factura', '2023-06-05', '16:45:00', 5),
-('Reclamo sobre la falta de stock de un producto', '2023-07-10', '09:00:00', 6),
-('Reclamo sobre la limpieza deficiente de las instalaciones', '2023-08-15', '11:25:00', 1),
-('Reclamo sobre el trato poco amable de un empleado', '2023-09-20', '13:40:00', 2),
-('Reclamo sobre la demora en la respuesta a una consulta', '2023-10-25', '15:55:00', 2),
-('Reclamo sobre la falta de respuesta a un reclamo anterior', '2023-11-05', '08:30:00', 1),
-('Reclamo sobre la calidad de un servicio prestado', '2023-12-10', '10:10:00', 4),
-('Reclamo sobre la falta de comunicación con el cliente', '2023-02-15', '12:20:00', 2),
-('Reclamo sobre la dificultad para realizar una devolución', '2023-03-20', '14:35:00', 1),
-('Reclamo sobre la entrega incorrecta de un pedido', '2023-04-25', '16:50:00', 2),
-('Reclamo sobre la discrepancia entre el pedido y la factura', '2023-05-05', '08:15:00', 2),
-('Reclamo sobre la cancelación de un servicio sin aviso', '2023-06-10', '10:30:00', 4),
-('Reclamo sobre el incumplimiento de una promoción', '2023-07-15', '12:40:00', 4),
-('Reclamo sobre la dificultad para contactar con el soporte técnico', '2023-08-20', '14:55:00', 3),
-('Reclamo sobre la falta de seguimiento de un reclamo anterior', '2023-09-25', '17:05:00', 1),
-('Reclamo sobre la falta de información en la página web', '2023-10-30', '09:20:00', 2);
-
-SELECT r.Reclamo_ID, r.Reclamo, r.Fecha, r.Hora, e.Nombre AS Empresa
-FROM reclamos AS r
-INNER JOIN empresa AS e ON r.Empresa_ID = e.Empresa_ID;
+INSERT INTO personal (DNI_personal, Años_experiencia, Salario) VALUES
+(31, 5, 50000),
+(32, 3, 45000),
+(33, 7, 60000),
+(34, 2, 40000),
+(35, 4, 55000),
+(36, 6, 58000),
+(37, 8, 65000),
+(38, 3, 47000),
+(39, 5, 52000),
+(40, 4, 49000);
 
 
+INSERT INTO reclamos (Reclamo, Fecha, Hora) VALUES
+('Mi reclamo es por un accidente automovilístico no cubierto por mi póliza.', '2023-12-15', '10:30:00'),
+('No he recibido la compensación por el accidente sufrido el mes pasado.', '2023-11-20', '15:45:00'),
+('El proceso de reclamación es demasiado complicado y lento.', '2023-10-18', '13:20:00'),
+('Mi reclamo es por la negativa de la compañía a cubrir los gastos médicos.', '2023-09-25', '11:10:00'),
+('El seguro de accidentes no ha cubierto los daños sufridos en mi hogar.', '2023-08-30', '09:25:00'),
+('La indemnización ofrecida por el seguro es insuficiente para cubrir mis gastos.', '2023-07-12', '14:15:00'),
+('No he recibido asistencia en carretera como se prometió en mi póliza.', '2023-06-05', '16:30:00'),
+('Mi reclamo es por el retraso en el procesamiento de mi solicitud de indemnización.', '2023-05-17', '10:40:00'),
+('El seguro no cubre los daños causados por fenómenos naturales.', '2023-04-22', '12:55:00'),
+('No he recibido respuesta a mi reclamo sobre el accidente ocurrido la semana pasada.', '2023-03-30', '08:20:00'),
+('El seguro de accidentes no ha reembolsado los gastos médicos como se prometió.', '2023-02-28', '17:00:00'),
+('Mi reclamo es por la falta de comunicación sobre el estado de mi reclamación.', '2023-01-14', '09:35:00'),
+('El seguro no cubre los daños causados por actividades deportivas.', '2023-12-19', '11:45:00'),
+('Mi reclamo es por la negativa de la compañía a cubrir el robo de mi bicicleta.', '2023-11-28', '14:50:00'),
+('El seguro de accidentes no ha cubierto los daños a mi propiedad.', '2023-10-20', '16:05:00'),
+('No he recibido asesoramiento adecuado sobre cómo presentar mi reclamo.', '2023-09-18', '10:15:00'),
+('El seguro no ha proporcionado la asistencia necesaria después de mi accidente.', '2023-08-10', '12:25:00'),
+('Mi reclamo es por el rechazo injustificado de mi reclamo de seguro.', '2023-07-05', '08:45:00'),
+('El proceso de reclamación en línea no funciona correctamente.', '2023-06-22', '09:55:00'),
+('El seguro no ha reembolsado los gastos de rehabilitación después de mi accidente.', '2023-05-15', '13:00:00');
 
-INSERT INTO empleado (DNI, Años_experiencia, Salario, Empresa_ID)
-VALUES 
-(1, 5, 50000, 1),
-(2, 8, 60000, 2),
-(3, 3, 45000, 1),
-(4, 6, 55000, 5),
-(5, 2, 40000, 4),
-(6, 4, 48000, 3),
-(7, 7, 58000, 6),
-(8, 5, 52000, 1),
-(9, 9, 65000, 6),
-(10, 3, 47000, 4);
+INSERT INTO accidente (Registro, Fecha, Hora, DNI_cliente) VALUES
+('Accidente de tráfico en la intersección principal.', '2023-12-15', '10:30:00', 1),
+('Caída en el hogar mientras limpiaba las escaleras.', '2023-11-20', '15:45:00', 3),
+('Colisión con un objeto fijo en el estacionamiento del supermercado.', '2023-10-18', '13:20:00', 6),
+('Lesión en el gimnasio durante una clase de entrenamiento.', '2023-09-25', '11:10:00', 4),
+('Caída de una bicicleta en el parque durante un paseo.', '2023-08-30', '09:25:00', 7),
+('Accidente de tráfico en una carretera rural durante la noche.', '2023-07-12', '14:15:00', 11),
+('Lesión en la cocina mientras manipulaba cuchillos.', '2023-06-05', '16:30:00', 12),
+('Caída en el trabajo desde una escalera.', '2023-05-17', '10:40:00', 15),
+('Colisión de vehículos en una calle concurrida del centro de la ciudad.', '2023-04-22', '12:55:00', 16),
+('Lesión en un parque de deportes extremos mientras practicaba skateboarding.', '2023-03-30', '08:20:00', 18),
+('Caída en la acera resbaladiza después de una lluvia.', '2023-02-28', '17:00:00', 19),
+('Accidente de tráfico en una autopista debido a condiciones climáticas adversas.', '2023-01-14', '09:35:00', 21),
+('Lesión en la piscina durante una fiesta.', '2023-12-19', '11:45:00', 21),
+('Caída en un centro comercial debido a un charco de agua.', '2023-11-28', '14:50:00', 22),
+('Colisión con un vehículo mientras conducía en una calle transitada.', '2023-10-20', '16:05:00', 23),
+('Lesión en un parque de atracciones durante un juego.', '2023-09-18', '10:15:00', 24),
+('Accidente de tráfico en una carretera rural debido a un animal en la vía.', '2023-08-10', '12:25:00', 28),
+('Caída en una acera en mal estado.', '2023-07-05', '08:45:00', 28),
+('Colisión con un objeto en la carretera mientras conducía de noche.', '2023-06-22', '09:55:00', 29),
+('Lesión en una cancha de deportes durante un partido.', '2023-05-15', '13:00:00', 30);
 
-SELECT e.DNI, p.Nombre, p.ApellidoP, p.ApellidoM, p.Fecha_nacimiento, p.Genero, p.Nacionalidad, e.Años_experiencia, e.Salario, e.Empresa_ID
-FROM empleado e
-INNER JOIN persona p ON e.DNI = p.DNI;
-
-INSERT INTO turno (DNI, Fecha, Entrada, Salida)
-VALUES 
-(1, '2024-03-10', '08:00:00', '12:00:00'),
-(3, '2024-03-10', '13:00:00', '18:30:00'),
-(8, '2024-03-11', '09:00:00', '18:00:00'),
-(5, '2024-03-10', '09:30:00', '18:30:00'),
-(10, '2024-03-11', '10:00:00', '14:00:00'),
-(7, '2024-03-11', '15:30:00', '20:30:00'),
-(9, '2024-03-11', '15:00:00', '20:00:00'),
-(2, '2024-03-11', '11:30:00', '15:30:00'),
-(4, '2024-03-11', '12:00:00', '16:00:00'),
-(6, '2024-03-11', '12:30:00', '16:30:00'),
-(1, '2024-03-10', '13:00:00', '17:00:00'),
-(3, '2024-03-11', '13:30:00', '17:30:00'),
-(8, '2024-03-11', '14:00:00', '18:00:00'),
-(5, '2024-03-10', '14:30:00', '18:30:00'),
-(10, '2024-03-11', '15:00:00', '19:00:00'),
-(7, '2024-03-12', '15:30:00', '19:30:00'),
-(9, '2024-03-12', '16:00:00', '20:00:00'),
-(2, '2024-03-11', '16:30:00', '20:30:00'),
-(4, '2024-03-12', '17:00:00', '21:00:00'),
-(6, '2024-03-12', '17:30:00', '21:30:00');
-
-INSERT INTO reclamo_atendido (DNI, Reclamo_ID)
-VALUES 
+INSERT INTO cliente_reclamo (DNI_cliente, Reclamo_ID) VALUES
 (1, 1),
-(3, 10),
-(8, 19),
-(1, 7),
-(3, 13),
-(2, 2),
-(2, 20),
-(2, 8),
-(2, 9),
-(2, 12),
-(2, 15),
-(2, 14),
-(6, 18),
-(6, 3),
-(5, 16),
+(1, 2),
+(3, 3),
 (5, 4),
+(5, 5),
+(5, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(9, 10),
 (10, 11),
-(10, 17),
-(4, 5),
-(7, 6);
-
-INSERT INTO cliente (DNI, Direccion)
-VALUES 
-(11, 'Calle Principal 123'),
-(12, 'Avenida Central 456'),
-(13, 'Carrera Secundaria 789'),
-(14, 'Plaza Mayor 101'),
-(15, 'Paseo del Sol 202'),
-(16, 'Camino Real 303'),
-(17, 'Bulevar del Norte 404'),
-(18, 'Pasaje del Este 505'),
-(19, 'Ronda del Oeste 606'),
-(20, 'Callejón del Sur 707');
-
-INSERT INTO cliente_reclamo (DNI, Reclamo_ID)
-VALUES 
-(11, 1),
-(11, 7),
-(11, 10),
-(12, 13),
-(12, 19),
-(13, 2),
-(13, 20),
-(13, 8),
-(13, 9),
-(14, 12),
+(12, 12),
+(18, 13),
 (14, 14),
 (14, 15),
-(15, 3),
-(16, 18),
-(17, 16),
-(17, 4),
-(17, 11),
-(18, 17),
-(19, 5),
-(20, 6);
+(19, 16),
+(21, 17),
+(25, 18),
+(26, 19),
+(28, 20);
+
+INSERT INTO turno (DNI_personal, Fecha, Entrada, Salida) VALUES
+(31, '2024-02-01', '08:00:00', '12:00:00'),
+(32, '2024-02-01', '08:00:00', '17:00:00'),
+(33, '2024-02-02', '13:00:00', '17:00:00'),
+(34, '2024-02-02', '13:00:00', '17:00:00'),
+(35, '2024-02-03', '08:00:00', '12:00:00'),
+(36, '2024-02-03', '08:00:00', '17:00:00'),
+(37, '2024-02-04', '13:00:00', '12:00:00'),
+(38, '2024-02-04', '13:00:00', '17:00:00'),
+(39, '2024-02-05', '08:00:00', '12:00:00'),
+(40, '2024-02-05', '08:00:00', '17:00:00'),
+(31, '2024-02-06', '13:00:00', '12:00:00'),
+(32, '2024-02-06', '13:00:00', '17:00:00'),
+(33, '2024-02-07', '08:00:00', '12:00:00'),
+(34, '2024-02-07', '08:00:00', '17:00:00');
 
 
+INSERT INTO sede (Direccion, Departamento) VALUES
+('Avenida Principal 123', 'Lima'),
+('Calle Secundaria 456', 'Lima'),
+('Plaza Central 789', 'Arequipa'),
+('Boulevard Norte 321', 'Arequipa'),
+('Calle Este 654', 'Arequipa');
 
-SELECT c.DNI, p.Nombre, p.ApellidoP, p.ApellidoM, p.Fecha_nacimiento, p.Genero, p.Nacionalidad, c.Direccion
-FROM cliente c
-INNER JOIN persona p ON c.DNI = p.DNI;
+INSERT INTO sede_personal (Sede_ID, DNI_personal) VALUES
+(1, 31),
+(1, 32),
+(2, 33),
+(2, 34),
+(3, 35),
+(3, 36),
+(4, 37),
+(4, 38),
+(5, 39),
+(5, 40);
 
+INSERT INTO vendedor (DNI_vendedor, Comision) VALUES
+(31, 0.05),
+(33, 0.07),
+(35, 0.06),
+(37, 0.08),
+(39, 0.09);
 
+INSERT INTO atencion_cliente (DNI_atencion_cliente) VALUES
+(36),
+(32),
+(34),
+(38),
+(40);
 
-INSERT INTO seguro_poliza (Precio, Terminos_condiciones, Nro_personas_aseguradas, Empresa_ID)
-VALUES 
-(150.00, 'Términos y condiciones Entel', 50, 1),
-(200.00, 'Términos y condiciones Robistar', 60, 2),
-(180.00, 'Términos y condiciones Maracuya S.A.', 55, 3),
-(170.00, 'Términos y condiciones Carritos Rapidos', 58, 4),
-(190.00, 'Términos y condiciones SomosMozos', 62, 5),
-(160.00, 'Términos y condiciones Nose', 45, 6);
+INSERT INTO atencion_idioma (DNI_atencion_cliente, Idioma) VALUES
+(32, 'español'),
+(32, 'inglés'),
+(34, 'español'),
+(34, 'inglés'),
+(36, 'español'),
+(36, 'inglés'),
+(38, 'español'),
+(38, 'inglés'),
+(40, 'español'),
+(40, 'inglés');
 
-SELECT Categoria, Precio, Terminos_condiciones, Nro_personas_aseguradas, Empresa_ID
-FROM seguro_poliza;
+INSERT INTO cliente_atendido (DNI_atencion_cliente, DNI_cliente) VALUES
+(32, 1),
+(32, 2),
+(32, 3),
+(32, 4),
+(32, 5),
+(32, 6),
+(32, 7),
+(34, 8),
+(34, 9),
+(34, 10),
+(34, 11),
+(36, 12),
+(36, 13),
+(36, 14),
+(36, 15),
+(36, 16),
+(36, 17),
+(36, 18),
+(36, 19),
+(38, 20),
+(38, 21),
+(38, 22),
+(38, 23),
+(40, 24),
+(40, 25),
+(40, 26),
+(40, 27),
+(40, 28),
+(40, 29),
+(40, 30);
 
-INSERT INTO cliente_poliza (DNI, Categoria, Inicio, Termino)
-VALUES 
-(11, 1, '2023-01-01', '2023-12-31'),
-(12, 1, '2023-01-01', '2023-12-31'),
-(13, 2, '2023-01-01', '2023-12-31'),
-(14, 2, '2023-01-01', '2023-12-31'),
-(15, 3, '2023-01-01', '2023-12-31'),
-(16, 3, '2023-01-01', '2023-12-31'),
-(17, 4, '2023-01-01', '2023-12-31'),
-(18, 4, '2023-01-01', '2023-12-31'),
-(19, 5, '2023-01-01', '2023-12-31'),
-(20, 6, '2023-01-01', '2023-12-31');
+INSERT INTO reclamo_atendido (DNI_atencion_cliente, Reclamo_ID) VALUES
+(32, 1),
+(32, 2),
+(32, 3),
+(34, 4),
+(34, 5),
+(34, 6),
+(34, 7),
+(34, 8),
+(34, 9),
+(36, 10),
+(36, 11),
+(38, 12),
+(38, 13),
+(38, 14),
+(38, 15),
+(38, 16),
+(38, 17),
+(40, 18),
+(40, 19),
+(40, 20);
 
-SELECT sp.Categoria, p.Nombre, p.ApellidoP, p.ApellidoM, p.Fecha_nacimiento, p.Genero, p.Nacionalidad
-FROM seguro_poliza sp
-JOIN cliente_poliza cp ON sp.Categoria = cp.Categoria
-JOIN cliente c ON cp.DNI = c.DNI
-JOIN persona p ON c.DNI = p.DNI;
+INSERT INTO vendedor_cliente (DNI_vendedor, DNI_cliente) VALUES
+(31, 1),
+(31, 2),
+(31, 3),
+(31, 4),
+(31, 5),
+(33, 6),
+(33, 7),
+(33, 8),
+(33, 9),
+(35, 10),
+(35, 11),
+(35, 12),
+(35, 13),
+(35, 14),
+(35, 15),
+(35, 16),
+(37, 17),
+(37, 18),
+(37, 19),
+(39, 20),
+(39, 21),
+(39, 22),
+(39, 23),
+(39, 24),
+(39, 25),
+(37, 26),
+(37, 27),
+(39, 28),
+(35, 29),
+(33, 30);
 
-SELECT p.DNI, p.Nombre, p.ApellidoP, p.ApellidoM, p.Fecha_nacimiento, p.Genero, p.Nacionalidad, c.Direccion, r.Reclamo_ID, r.Reclamo, r.Fecha, r.Hora
-FROM cliente c
-JOIN cliente_reclamo cr ON c.DNI = cr.DNI
-JOIN reclamos r ON cr.Reclamo_ID = r.Reclamo_ID
-JOIN persona p ON c.DNI = p.DNI;
+INSERT INTO seguro_poliza (Precio, Terminos_condiciones, Nro_personas_aseguradas) VALUES
+(100.00, 'Términos y condiciones para 1 persona.', 1),
+(150.00, 'Términos y condiciones para 2 personas.', 2),
+(200.00, 'Términos y condiciones para 3 personas.', 3),
+(250.00, 'Términos y condiciones para 4 personas.', 4),
+(300.00, 'Términos y condiciones para 5 personas.', 5);
 
-SELECT p.DNI, p.Nombre, p.ApellidoP, p.ApellidoM, r.Reclamo_ID, r.Reclamo, r.Fecha, r.Hora
-FROM empleado e
-JOIN persona p ON e.DNI = p.DNI
-JOIN reclamo_atendido ra ON e.DNI = ra.DNI
-JOIN reclamos r ON ra.Reclamo_ID = r.Reclamo_ID;
+INSERT INTO cobertura (Categoria, Cobertura) VALUES
+(1, 'Cobertura para 1 persona'),
+(2, 'Cobertura para 2 personas'),
+(3, 'Cobertura para 3 personas'),
+(4, 'Cobertura para 4 personas'),
+(5, 'Cobertura para 5 personas');
+
+INSERT INTO contrato (DNI_cliente, Categoria, Inicio, Termino) VALUES
+(1, 1, '2024-01-01', '2024-12-31'),
+(2, 2, '2024-01-15', '2024-12-31'),
+(3, 3, '2024-02-01', '2024-12-31'),
+(4, 4, '2024-03-01', '2024-12-31'),
+(5, 5, '2024-04-01', '2024-12-31'),
+(6, 1, '2024-05-01', '2024-12-31'),
+(7, 2, '2024-06-01', '2024-12-31'),
+(8, 3, '2024-07-01', '2024-12-31'),
+(9, 4, '2024-08-01', '2024-12-31'),
+(10, 5, '2024-09-01', '2024-12-31'),
+(11, 1, '2024-10-01', '2024-12-31'),
+(12, 2, '2024-11-01', '2024-12-31'),
+(13, 3, '2024-12-01', '2024-12-31'),
+(14, 4, '2024-01-01', '2024-12-31'),
+(15, 5, '2024-02-01', '2024-12-31'),
+(16, 1, '2024-03-01', '2024-12-31'),
+(17, 2, '2024-04-01', '2024-12-31'),
+(18, 3, '2024-05-01', '2024-12-31'),
+(19, 4, '2024-06-01', '2024-12-31'),
+(20, 5, '2024-07-01', '2024-12-31'),
+(21, 1, '2024-08-01', '2024-12-31'),
+(22, 2, '2024-09-01', '2024-12-31'),
+(23, 3, '2024-10-01', '2024-12-31'),
+(24, 4, '2024-11-01', '2024-12-31'),
+(25, 5, '2024-12-01', '2024-12-31'),
+(26, 1, '2024-01-01', '2024-12-31'),
+(27, 2, '2024-02-01', '2024-12-31'),
+(28, 3, '2024-03-01', '2024-12-31'),
+(29, 4, '2024-04-01', '2024-12-31'),
+(30, 5, '2024-05-01', '2024-12-31');
+

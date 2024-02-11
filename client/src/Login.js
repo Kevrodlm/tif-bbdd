@@ -23,7 +23,7 @@ function Login(){
                 if (res.data === "Iniciaste sesión con éxito!"){
                     navigate('/home');
                 }else{
-                    alert("NO existe")
+                    alert("NO existe");
                 }
             })
             .catch(err=>console.log(err));

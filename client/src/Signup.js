@@ -8,8 +8,8 @@ import axios from 'axios';
 
 function Signup() {
     
-    const [values, setValues] = useState({nombre:'',apelli_pat:'',apelli_mat:'',dni:'',telefono:''
-        ,fecha_nac:'',nacionalidad:'',genero:'',  email:'', usuario:'', password:''});
+    const [values, setValues] = useState({usuario:'',password:'',dni:'',nombre:'',apelli_pat:'',apelli_mat:'',telefono:''
+        ,fecha_nac:'',nacionalidad:'',genero:'',email:'',direccion:''});
     
     const navigate = useNavigate();
 
@@ -24,7 +24,13 @@ function Signup() {
         if(errors.nombre === "" && errors.email === "" && errors.password === ""){
             axios.post("http://localhost:3008/signup", values)
             .then(res=>{
-                navigate('');
+                if(res.data === "Cliente agregado exitosamente"){
+                    navigate('/home');
+                    alert("Registrado correctamente");
+                }else if(res.data === "Error: Cliente ya existe"){
+                    navigate('/');
+                    alert("Ya existe el usuario");
+                }
             })
             .catch(err=>console.log(err));
         }
@@ -35,6 +41,19 @@ function Signup() {
             <div className='bg-white p-3 rounded w-25'>
                 <h2>Registrarse</h2>
                 <form action="" onSubmit={handleSubmit}>
+                    
+                    <div className='mb-3'>
+                        <label htmlFor="text"><strong>Usuario</strong></label>
+                        <input type="text" placeholder='Ingresa tu Usuario' name='usuario' onChange={handleInput} className='form-control rounded-0'/>
+                        {errors.nombre && <span className='text-danger'>{errors.nombre}</span>}
+                    </div>
+
+                    <div className='mb-3'>
+                        <label htmlFor="password"><strong>Contraseña</strong></label>
+                        <input type="password" placeholder='Ingresa tu Contraseña' name='password' onChange={handleInput} className='form-control rounded-0'/>
+                        {errors.password && <span className='text-danger'>{errors.password}</span>}
+                    </div>
+
 
                     <div className='mb-3'>
                         <label htmlFor="name"><strong>Nombre</strong></label>
@@ -85,21 +104,15 @@ function Signup() {
                     </div>
 
                     <div className='mb-3'>
+                        <label htmlFor="email"><strong>Dirección</strong></label>
+                        <input type="text" placeholder='Ingresa tu Direccion' name='direccion' onChange={handleInput} className='form-control rounded-0'/>
+                        {errors.direccion && <span className='text-danger'>{errors.nombre}</span>}
+                    </div>
+
+                    <div className='mb-3'>
                         <label htmlFor="email"><strong>Correo</strong></label>
                         <input type="text" placeholder='Ingresa tu Correo' name='email' onChange={handleInput} className='form-control rounded-0'/>
                         {errors.email && <span className='text-danger'>{errors.email}</span>}
-                    </div>
-
-                    <div className='mb-3'>
-                        <label htmlFor="text"><strong>Usuario</strong></label>
-                        <input type="text" placeholder='Ingresa tu Usuario' name='usuario' onChange={handleInput} className='form-control rounded-0'/>
-                        {errors.nombre && <span className='text-danger'>{errors.nombre}</span>}
-                    </div>
-
-                    <div className='mb-3'>
-                        <label htmlFor="password"><strong>Contraseña</strong></label>
-                        <input type="password" placeholder='Ingresa tu Contraseña' name='password' onChange={handleInput} className='form-control rounded-0'/>
-                        {errors.password && <span className='text-danger'>{errors.password}</span>}
                     </div>
 
                     <button type='submit' className='btn btn-success w-100 rounded-0'><strong>Registrarte</strong></button>
