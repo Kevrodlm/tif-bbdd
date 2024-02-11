@@ -60,6 +60,19 @@ app.post("/login", (req, res) => {
     });
 });
 
+app.get("/servicio", (req, res) => {
+    db.query("SELECT * FROM seguro_poliza",
+    (err,result)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(result);
+        }
+    });
+});
+
+
 app.listen(3008,()=>{
     console.log("Corriendo en el puerto 3008")
 });

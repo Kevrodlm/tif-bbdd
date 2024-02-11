@@ -20,7 +20,7 @@ function HeroSection() {
             Inicia Sesión
           </Button>
         </Link>
-        <Link to='/home'> {/* Usa Link para la página de servicios */}
+        <Link to='/Servicios'> {/* Usa Link para la página de servicios */}
           <Button
             className='btns'
             buttonStyle='btn--primary'
