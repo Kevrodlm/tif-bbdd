@@ -28,7 +28,7 @@ function Perfil() {
 
         const fetchContratos = async () => {
             try {
-                const response = await Axios.get("http://localhost:3008/datosUsuario");
+                const response = await Axios.get("http://localhost:3008/contratos");
                 console.log("Respuesta del servidor (contratos):", response);
                 if (response.data.length > 0) {
                     setContratos(response.data[0]);
@@ -43,7 +43,7 @@ function Perfil() {
 
         const fetchAccidentes = async () => {
             try {
-                const response = await Axios.get("http://localhost:3008/datosUsuario");
+                const response = await Axios.get("http://localhost:3008/accidentes");
                 console.log("Respuesta del servidor (accidentes):", response);
                 if (response.data.length > 0) {
                     setAccidentes(response.data[0]);
@@ -58,7 +58,7 @@ function Perfil() {
 
         const fetchReclamos = async () => {
             try {
-                const response = await Axios.get("http://localhost:3008/datosUsuario");
+                const response = await Axios.get("http://localhost:3008/reclamos");
                 console.log("Respuesta del servidor (reclamos):", response);
                 if (response.data.length > 0) {
                     setReclamos(response.data[0]);
@@ -98,35 +98,35 @@ function Perfil() {
             </div>
             <div>
                 {error && <div>{error.contratos}</div>}
-                {contratoList && contratoList.map((datos, index) => (
+                {contratoList.map((cont, index) => (
                     <div key={index}>
                         <h2>Contratos</h2>
-                        <p>Categoria: {datos.Categoria}</p>
-                        <p>Monto: {datos.Monto}</p>
-                        <p>Inicio: {datos.Inicio}</p>
+                        <p>Categoria: {cont.Categoria}</p>
+                        <p>Monto: {cont.Monto}</p>
+                        <p>Inicio: {cont.Inicio}</p>
                     </div>
                 ))}
             </div>
             
             <div>
                 {error && <div>{error.accidentes}</div>}
-                {accidentesList && accidentesList.map((datos, index) => (
+                {accidentesList.map((acc, index) => (
                     <div key={index}>
                         <h2>Accidentes</h2>
-                        <p>Registro: {datos.Categoria}</p>
-                        <p>Fecha: {datos.Monto}</p>
-                        <p>Hora: {datos.Inicio}</p>
+                        <p>Registro: {acc.Registro}</p>
+                        <p>Fecha: {acc.Fecha}</p>
+                        <p>Hora: {acc.Hora}</p>
                     </div>
                 ))}
             </div>
             <div>
                 {error && <div>{error.reclamos}</div>}
-                {reclamosList && reclamosList.map((datos, index) => (
+                {reclamosList.map((recl, index) => (
                     <div key={index}>
                         <h2>Reclamos</h2>
-                        <p>Reclamo: {datos.Categoria}</p>
-                        <p>Fecha: {datos.Monto}</p>
-                        <p>Hora: {datos.Inicio}</p>
+                        <p>Reclamo: {recl.Reclamo}</p>
+                        <p>Fecha: {recl.Fecha}</p>
+                        <p>Hora: {recl.Hora}</p>
                     </div>
                 ))}
             </div>
