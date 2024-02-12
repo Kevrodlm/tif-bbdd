@@ -39,6 +39,26 @@ BEGIN
     END IF;
 END;
 //
+DROP PROCEDURE IF EXISTS MostrarCliente//
+CREATE PROCEDURE MostrarCliente(
+    IN p_usuario VARCHAR(30)
+)
+BEGIN
+    DECLARE existeUsuario INT;
+    -- Verificar si el usuario existe
+    SELECT COUNT(*) INTO existeUsuario FROM usuario WHERE usuario.Usuario_ID = p_usuario;
+
+    IF existeUsuario > 0 THEN
+        SELECT p.*, GROUP_CONCAT(Telefono SEPARATOR ', ') AS Telefono, direccion 
+        FROM persona p
+        INNER JOIN usuario u ON u.DNI = p.DNI
+        INNER JOIN cliente c ON c.DNI_cliente = p.DNI
+        INNER JOIN persona_telefono pt ON pt.DNI = p.DNI
+        WHERE p_usuario = u.Usuario_ID
+        GROUP BY u.Usuario_ID, p.DNI; -- Include u.Usuario_ID in the GROUP BY clause
+    END IF;    
+END;
+//
 
 DROP PROCEDURE IF EXISTS EliminarCliente//
 CREATE PROCEDURE EliminarCliente(
@@ -154,6 +174,24 @@ BEGIN
     END WHILE;
     COMMIT;
 END;
+
+//
+DROP PROCEDURE IF EXISTS obtenerSeguros_poliza//
+CREATE PROCEDURE obtenerSeguros_poliza(
+)
+BEGIN
+	SELECT * FROM seguro_poliza;
+END;
+//
+
+DROP PROCEDURE IF EXISTS verificarLogin//
+CREATE PROCEDURE verificarLogin(
+	IN p_Usuario VARCHAR(30),
+    IN p_pasword VARCHAR(30)
+)
+BEGIN
+	SELECT * FROM usuario WHERE Usuario_ID = p_Usuario AND pasword = p_pasword;
+END;
 //
 
 DROP PROCEDURE IF EXISTS ContratoExitoso//
@@ -223,6 +261,7 @@ END;
 DROP PROCEDURE IF EXISTS Reporte_Contratos//
 CREATE PROCEDURE Reporte_Contratos()
 BEGIN
+
     SELECT c.Contrato_ID, CONCAT(p.Nombre, ' ', p.ApellidoP, ' ', p.ApellidoM) AS Nombre_Cliente, sp.Categoria, c.Monto, c.Inicio, c.Termino
     FROM contrato c
     INNER JOIN cliente ON c.DNI_cliente = cliente.DNI_cliente
@@ -230,6 +269,14 @@ BEGIN
     INNER JOIN seguro_poliza sp ON c.Categoria = sp.Categoria;
 END;
 //
+
+DROP PROCEDURE IF EXISTS Contrato_persona//
+CREATE PROCEDURE Contrato_persona(p_DNI INT)
+BEGIN
+
+    SELECT Categoria, Monto, Inicio, Termino FROM contrato 
+    WHERE DNI_cliente = p_DNI ;
+END;
 
 DROP PROCEDURE IF EXISTS Reporte_Contratos_Por_Vencer//
 CREATE PROCEDURE Reporte_Contratos_Por_Vencer()
@@ -298,3 +345,12 @@ END;
 //
 
 DELIMITER ;
+
+SELECT Usuario_ID, Cargo(Usuario_ID) as Cargo FROM usuario;
+CALL Reporte_Reclamos();
+CALL Reporte_Accidentes();
+CALL Reporte_Contratos();
+CALL Reporte_Contratos_Por_Vencer();
+SELECT Devolver_DNI(Usuario_ID) FROM usuario;
+CALL MostrarCliente('john_doe');
+CALL Contrato_persona(1);

@@ -6,6 +6,8 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+let usuarioTemp = "";
+
 const db = mysql.createConnection({ 
     host: "localhost", 
     user: "root",
@@ -26,7 +28,9 @@ app.post("/signup", (req, res) => {
     const email = req.body.email;
     const direccion = req.body.direccion;
     const telefono = req.body.telefono;
-    
+
+    usuarioTemp = usuario;
+
     db.query('CALL AgregarCliente(?,?,?,?,?,?,?,?,?,?,?,?) ',
         [usuario, pasword, nombre, apelli_pat, apelli_mat, dni, telefono, fecha_nac, nacionalidad, genero, direccion, email], (err, data) => {
             if (err) {
@@ -40,13 +44,13 @@ app.post("/signup", (req, res) => {
     );
 });
 
-
 app.post("/login", (req, res) => {
     const usuario = req.body.usuario;
     const password = req.body.password;
    
-    const sql = "SELECT * FROM usuario WHERE Usuario_ID = ? AND pasword = ?;";
-    db.query(sql, [usuario, password], (err, data) => {
+    usuarioTemp = usuario;
+
+    db.query('CALL verificarLogin(?,?);', [usuario, password], (err, data) => {
         if (err) {
             console.log(err);
             res.status(500).send("Error al procesar la solicitud");
@@ -61,10 +65,10 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/servicio", (req, res) => {
-    db.query("SELECT * FROM seguro_poliza",
-    (err,result)=>{
+    db.query("SELECT * FROM seguro_poliza;", (err,result) => {
         if(err){
-            console.log(err);
+            console.error(err);
+            res.status(500).send("Error interno del servidor");
         }
         else{
             res.send(result);
@@ -72,7 +76,22 @@ app.get("/servicio", (req, res) => {
     });
 });
 
+app.get("/perfil", (req, res) => {
+    
+    db.query("CALL MostrarCliente(?);",[usuarioTemp] ,(err,result) => {
+        if(err){
+            console.error(err);
+            res.status(500).send("Error interno del servidor");
+        }
+        else{
+            res.send(result);
+        }
+    });
+
+});
+
 
 app.listen(3008,()=>{
     console.log("Corriendo en el puerto 3008")
 });
+

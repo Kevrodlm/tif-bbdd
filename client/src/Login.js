@@ -21,7 +21,7 @@ function Login(){
             axios.post("http://localhost:3008/login", values)
             .then(res=>{
                 if (res.data === "Iniciaste sesión con éxito!"){
-                    navigate('/home');
+                    navigate('/perfil');
                 }else{
                     alert("NO existe");
                 }
