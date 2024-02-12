@@ -4,9 +4,10 @@ import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const Servicios = () => {
+function Servicios(){
 
     const[serviciosList,setServicios] = useState([]);
+
     useEffect(() => {
       getServicios(); 
     }, []);

@@ -28,7 +28,7 @@ app.post("/signup", (req, res) => {
     const telefono = req.body.telefono;
     
     db.query('CALL AgregarCliente(?,?,?,?,?,?,?,?,?,?,?,?) ',
-        [usuario, pasword, dni, nombre, apelli_pat, apelli_mat, fecha_nac, genero, nacionalidad, email, direccion, telefono,], (err, data) => {
+        [usuario, pasword, nombre, apelli_pat, apelli_mat, dni, telefono, fecha_nac, nacionalidad, genero, direccion, email], (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).send("Error al procesar la solicitud");
