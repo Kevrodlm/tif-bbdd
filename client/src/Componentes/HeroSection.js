@@ -9,7 +9,9 @@ function HeroSection() {
     <div className='hero-container'>
       <video src='/Videos/video-1.mp4' autoPlay loop muted />
       <h1>ASEGURA TU VIDA Y LA DE TU FAMILIA</h1>
-      <p>Que estas esperando?</p>
+      <p></p>
+      <p>¿Qué estas esperando? Nosotros te cubriremos siempre :)</p>
+      <p>Alcanza tus sueños, nosotros estaremos para ti</p>
       <div className='hero-btns'>
         <Link to='../Login'> {/* Usa Link para la página de inicio de sesión */}
           <Button
