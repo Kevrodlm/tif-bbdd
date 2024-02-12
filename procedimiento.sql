@@ -60,6 +60,56 @@ BEGIN
 END;
 //
 
+DROP PROCEDURE IF EXISTS Reclamos_por_usuario//
+CREATE PROCEDURE Reclamos_por_usuario(IN usuario_id VARCHAR(30))
+BEGIN
+    DECLARE p_DNI INTEGER;
+    DECLARE persona_existente INTEGER;
+    
+    SELECT DNI INTO p_DNI FROM usuario WHERE Usuario_ID = usuario_id LIMIT 1;
+    
+    SELECT COUNT(*) INTO persona_existente FROM persona WHERE DNI = p_DNI;
+    
+    IF persona_existente > 0 THEN
+        SELECT Reclamo, Fecha, Hora FROM reclamos
+        WHERE reclamos.DNI_cliente = p_DNI;
+    END IF;
+END;
+
+//
+DROP PROCEDURE IF EXISTS Accidentes_por_usuario//
+CREATE PROCEDURE Accidentes_por_usuario(IN usuario_id VARCHAR(30))
+BEGIN
+    DECLARE p_DNI INTEGER;
+    DECLARE persona_existente INTEGER;
+    
+    SELECT DNI INTO p_DNI FROM usuario WHERE Usuario_ID = usuario_id LIMIT 1;
+    
+    SELECT COUNT(*) INTO persona_existente FROM persona WHERE DNI = p_DNI;
+    
+    IF persona_existente > 0 THEN
+        SELECT Registro, Fecha, Hora FROM accidente
+        WHERE accidente.DNI_cliente = p_DNI;
+    END IF;
+END;
+//
+DROP PROCEDURE IF EXISTS Contrato_por_usuario//
+CREATE PROCEDURE Contrato_por_usuario(IN usuario_id VARCHAR(30))
+BEGIN
+	DECLARE p_DNI INTEGER;
+    DECLARE persona_existente INTEGER;
+    
+    SELECT DNI INTO p_DNI FROM usuario WHERE Usuario_ID = usuario_id LIMIT 1;
+    
+    SELECT COUNT(*) INTO persona_existente FROM persona WHERE DNI = p_DNI;
+    
+    IF persona_existente > 0 THEN
+        SELECT Categoria, Monto, Inicio, Termino FROM contrato
+        WHERE contrato.DNI_cliente = p_DNI;
+    END IF;
+END;
+//
+
 DROP PROCEDURE IF EXISTS EliminarCliente//
 CREATE PROCEDURE EliminarCliente(
     IN p_DNI VARCHAR(30)

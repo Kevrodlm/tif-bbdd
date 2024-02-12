@@ -76,8 +76,8 @@ app.get("/servicio", (req, res) => {
     });
 });
 
-app.get("/perfil", (req, res) => {
-    
+app.get("/datosUsuario", (req, res) => {
+
     db.query("CALL MostrarCliente(?);",[usuarioTemp] ,(err,result) => {
         if(err){
             console.error(err);
@@ -89,6 +89,50 @@ app.get("/perfil", (req, res) => {
     });
 
 });
+
+app.get("/reclamos", (req, res) => {
+
+    db.query("CALL Reclamos_por_usuario(?);",[usuarioTemp] ,(err,result) => {
+        if(err){
+            console.error(err);
+            res.status(500).send("Error interno del servidor");
+        }
+        else{
+            res.send(result);
+        }
+    });
+
+});
+
+app.get("/contratos", (req, res) => {
+
+    db.query("CALL Contrato_por_usuario(?);",[usuarioTemp] ,(err,result) => {
+        if(err){
+            console.error(err);
+            res.status(500).send("Error interno del servidor");
+        }
+        else{
+            res.send(result);
+        }
+    });
+
+});
+
+app.get("/accidentes", (req, res) => {
+
+    db.query("CALL Accidentes_por_usuario(?);",[usuarioTemp] ,(err,result) => {
+        if(err){
+            console.error(err);
+            res.status(500).send("Error interno del servidor");
+        }
+        else{
+            res.send(result);
+        }
+    });
+
+});
+
+
 
 
 app.listen(3008,()=>{
