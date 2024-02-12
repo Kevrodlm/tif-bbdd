@@ -33,7 +33,7 @@ const Servicios = () => {
                 </tr>
             </thead>
             <tbody>
-            {
+                {
                 serviciosList.map((val, key) => (
                     <tr key={val.Categoria}>
                         <th scope="row">{val.Categoria}</th>
@@ -42,7 +42,7 @@ const Servicios = () => {
                         <td>{val.Nro_personas_aseguradas}</td>
                     </tr>
                 ))
-            }
+                }
             </tbody>
             </table>
         </>

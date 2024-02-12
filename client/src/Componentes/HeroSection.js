@@ -11,7 +11,7 @@ function HeroSection() {
       <h1>ASEGURA TU VIDA Y LA DE TU FAMILIA</h1>
       <p>Que estas esperando?</p>
       <div className='hero-btns'>
-        <Link to='/login'> {/* Usa Link para la página de inicio de sesión */}
+        <Link to='../Login'> {/* Usa Link para la página de inicio de sesión */}
           <Button
             className='btns'
             buttonStyle='btn--outline'
@@ -20,7 +20,7 @@ function HeroSection() {
             Inicia Sesión
           </Button>
         </Link>
-        <Link to='/Servicios'> {/* Usa Link para la página de servicios */}
+        <Link to='../Servicios'> {/* Usa Link para la página de servicios */}
           <Button
             className='btns'
             buttonStyle='btn--primary'
