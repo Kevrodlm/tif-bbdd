@@ -5,7 +5,7 @@ import './App.css';
 import {Link, useNavigate} from 'react-router-dom';
 import Validation from './SignupValidation';
 import axios from 'axios';
-
+import Navbar from './Componentes/Navbar';
 function Signup() {
     
     const [values, setValues] = useState({usuario:'',password:'',dni:'',nombre:'',apelli_pat:'',apelli_mat:'',telefono:''
@@ -26,7 +26,7 @@ function Signup() {
             axios.post("http://localhost:3008/signup", values)
             .then(res=>{
                 if(res.data === "Cliente agregado exitosamente"){
-                    navigate('/home');
+                    navigate('/Perfil');
                     alert("Registrado correctamente");
                 }else if(res.data === "Error: Cliente ya existe"){
                     navigate('/');
@@ -38,11 +38,11 @@ function Signup() {
     };
 
   return (
-
-    
-    <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-        <div className='bg-white p-3 rounded w-75'>
-            <h2>Registrarse</h2>
+    <>
+    <Navbar></Navbar>
+    <div className='background-container'>
+        <div className='form-container'>
+            <h2>Registrate</h2>
             <form action="" onSubmit={handleSubmit}>
                 <div className="row">
                     {/* Columna izquierda */}
@@ -148,6 +148,7 @@ function Signup() {
         </div>
     </div>
     
+    </>
   );
 }
 

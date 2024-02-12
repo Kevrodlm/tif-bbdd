@@ -8,7 +8,7 @@ function Footer() {
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          Únete al boletín de aventuras para recibir nuestras mejores ofertas de vacaciones
+          Únete  para recibir nuestras mejores ofertas y servicios, vive sin preocupaciones
         </p>
         <p className='footer-subscription-text'>
           Puedes darte de baja en cualquier momento.

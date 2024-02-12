@@ -29,8 +29,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/home' className='navbar-logo' onClick={closeMobileMenu}>
-            FORTNITE
-            <i className='fab fa-typo3' />
+            FREEofLICE .
+            <i class="fa-solid fa-clipboard-check"></i>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -42,12 +42,12 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
                 Ingresa
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/seguros' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/servicios' className='nav-links' onClick={closeMobileMenu}>
                 Seguros y servicios
               </Link>
             </li>
