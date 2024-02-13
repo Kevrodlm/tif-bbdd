@@ -6,6 +6,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import Validation from './SignupValidation';
 import axios from 'axios';
 import Navbar from './Componentes/Navbar';
+
 function Signup() {
     
     const [values, setValues] = useState({usuario:'',password:'',dni:'',nombre:'',apelli_pat:'',apelli_mat:'',telefono:''

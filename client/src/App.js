@@ -8,6 +8,7 @@ import Home from './Componentes/pages/Home';
 import Servicios from './Servicios';
 import Perfil from './Perfil';
 import Comprar from './Comprar';
+import ActualizarPerfil from './ActualizarPerfil';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/Servicios' element={<Servicios />}></Route>
           <Route path='/perfil' element={<Perfil />}></Route>
           <Route path='/comprar' element={<Comprar />}></Route>
+          <Route path='/ActualizarPerfil' element={<ActualizarPerfil />}></Route>
       </Routes>
     </BrowserRouter>
   );
