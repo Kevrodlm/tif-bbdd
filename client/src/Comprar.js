@@ -76,34 +76,46 @@ function Comprar() {
     return (
         <>
             <Navbar></Navbar>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col" className="table-active">Seleccionar</th>
-                        <th scope="col" className="table-active">Categoria</th>
-                        <th scope="col" className="table-active">Precio</th>
-                        <th scope="col" className="table-active">Terminos y condiciones</th>
-                        <th scope="col" className="table-active">Nro de personas aseguradas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                    serviciosList.map((val, key) => (
-                        <tr key={val.Categoria}>
-                            <td><input type="radio" name="servicio" onChange={() => handleServicioSelection(val)} /></td>
-                            <th scope="row">{val.Categoria}</th>
-                            <td>{val.Precio}</td>
-                            <td>{val.Terminos_condiciones}</td>
-                            <td>{val.Nro_personas_aseguradas}</td>
+            <div className="container mt-5">
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" className="table-active">Seleccionar</th>
+                            <th scope="col" className="table-active">Categoria</th>
+                            <th scope="col" className="table-active">Precio</th>
+                            <th scope="col" className="table-active">Terminos y condiciones</th>
+                            <th scope="col" className="table-active">Nro de personas aseguradas</th>
                         </tr>
-                    ))
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {serviciosList.map((val, key) => (
+                            <tr key={val.Categoria}>
+                                <td><input type="radio" name="servicio" onChange={() => handleServicioSelection(val)} /></td>
+                                <th scope="row">{val.Categoria}</th>
+                                <td>{val.Precio}</td>
+                                <td>{val.Terminos_condiciones}</td>
+                                <td>{val.Nro_personas_aseguradas}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
 
-            <input type="date" placeholder="Inicio" value={inicio} onChange={(e) => setInicio(e.target.value)} />
-            <input type="date" placeholder="Termino" value={termino} onChange={(e) => setTermino(e.target.value)} />
-            <button onClick={handleConfirmarCompra}>Confirmar compra</button>
+                <div className="row justify-content-center">
+                    <div className="col-auto">
+                        <label htmlFor="fechaInicio" className="col-form-label">Fecha inicio:</label>
+                        <input type="date" id="fechaInicio" className="form-control mb-2" value={inicio} onChange={(e) => setInicio(e.target.value)} />
+                    </div>
+                    <div className="col-auto">
+                        <label htmlFor="fechaFin" className="col-form-label">Fecha fin:</label>
+                        <input type="date" id="fechaFin" className="form-control mb-2" value={termino} onChange={(e) => setTermino(e.target.value)} />
+                    </div>
+                    <div className="text-center">
+                    <button onClick={handleConfirmarCompra} className="btn btn-primary">Confirmar compra</button>
+                </div>
+                </div>
+
+                
+            </div>
         </>
     );
 }
