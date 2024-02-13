@@ -7,6 +7,7 @@ import Signup from './Signup';
 import Home from './Componentes/pages/Home';
 import Servicios from './Servicios';
 import Perfil from './Perfil';
+import Comprar from './Comprar';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Login />}></Route>
           <Route path='/Servicios' element={<Servicios />}></Route>
           <Route path='/perfil' element={<Perfil />}></Route>
+          <Route path='/comprar' element={<Comprar />}></Route>
       </Routes>
     </BrowserRouter>
   );
