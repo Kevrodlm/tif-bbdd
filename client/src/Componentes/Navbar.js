@@ -30,7 +30,7 @@ function Navbar() {
         <div className='navbar-container'>
           <Link to='/home' className='navbar-logo' onClick={closeMobileMenu}>
             FREEofLICE .
-            <i class="fa-solid fa-clipboard-check"></i>
+            <i className="fa-solid fa-clipboard-check"></i>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

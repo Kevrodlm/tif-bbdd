@@ -6,9 +6,22 @@ function Comprar() {
     const [serviciosList, setServicios] = useState([]);
     const [selectedServicio, setSelectedServicio] = useState(null);
 
-    useEffect(() => {
-        getServicios();
-    }, []);
+
+    const [inicio, setInicio] = useState('');
+    const [termino, setTermino] = useState('');
+
+    const [dniUsuario, setDniUsuario] = useState('');
+
+
+    const getDNI = () => {
+        Axios.get("http://localhost:3008/obtenerdni")
+            .then((response) => {
+                setDniUsuario(response.data);
+            })
+            .catch((error) => {
+                console.error('Error al obtener el DNI del usuario:', error);
+            });
+    }
 
     const getServicios = () => {
         Axios.get("http://localhost:3008/servicio")
@@ -20,8 +33,42 @@ function Comprar() {
             });
     }
 
+    useEffect(() => {
+        getServicios();
+        getDNI();
+    }, []);
+
     const handleServicioSelection = (servicio) => {
         setSelectedServicio(servicio);
+    }
+
+    const handleConfirmarCompra = () => {
+        
+        console.log(dniUsuario);
+        if (dniUsuario && selectedServicio && inicio && termino) {
+            const data = {
+                DNI_vendedor: 32,
+                DNI_cliente: dniUsuario[0].DNI,
+                Categoria: selectedServicio.Categoria,
+                Monto: selectedServicio.Precio,
+                Inicio: inicio,
+                Termino: termino
+            };
+            
+            console.log(data.p_Inicio)
+            Axios.post("http://localhost:3008/comprar", data)
+                .then((response) => {
+                    console.log('Contrato exitoso:', response.data);
+                    alert('Contrato exitoso');
+                })
+                .catch((error) => {
+                    console.error('Error al crear contrato:', error);
+                    alert('Ya tienes un contrato');
+                });
+        } else {
+            console.error('Por favor, complete todos los campos.');
+            alert('Por favor, complete todos los campos.');
+        }
     }
 
     return (
@@ -50,7 +97,10 @@ function Comprar() {
                     }
                 </tbody>
             </table>
-            <button onClick={() => console.log("Servicio seleccionado:", selectedServicio)}>Confirmar selección</button>
+
+            <input type="date" placeholder="Inicio" value={inicio} onChange={(e) => setInicio(e.target.value)} />
+            <input type="date" placeholder="Termino" value={termino} onChange={(e) => setTermino(e.target.value)} />
+            <button onClick={handleConfirmarCompra}>Confirmar compra</button>
         </>
     );
 }

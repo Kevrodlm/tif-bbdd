@@ -3,7 +3,9 @@ const app = express();
 const mysql = require("mysql");
 
 const cors = require("cors");
+
 app.use(cors());
+
 app.use(express.json());
 
 let usuarioTemp = "";
@@ -65,6 +67,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/servicio", (req, res) => {
+
     db.query("SELECT * FROM seguro_poliza;", (err,result) => {
         if(err){
             console.error(err);
@@ -75,6 +78,19 @@ app.get("/servicio", (req, res) => {
         }
     });
 });
+
+app.get("/obtenerdni", (req, res) => {
+
+    db.query('SELECT DNI FROM usuario WHERE Usuario_ID = ?;', [usuarioTemp], (err, results) => {
+        if (err) {
+            console.error('Error al ejecutar la consulta:', err);
+            res.status(500).send("Error al obtener el DNI del usuario");
+        } else {
+            res.json(results);
+        }
+    });
+});
+
 
 app.get("/datosUsuario", (req, res) => {
 
@@ -132,7 +148,18 @@ app.get("/accidentes", (req, res) => {
 
 });
 
-
+app.post("/comprar", (req, res) => {
+    const { DNI_vendedor, DNI_cliente, Categoria, Monto, Inicio, Termino } = req.body;
+ 
+    db.query('CALL ContratoExitoso(?,?,?,?,?,?);', [DNI_vendedor, DNI_cliente, Categoria, Monto, Inicio, Termino], (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send("Error al procesar la solicitud");
+        } else {
+            return res.json("Contrato creado exitosamente");
+        }
+    });
+});
 
 
 app.listen(3008,()=>{
