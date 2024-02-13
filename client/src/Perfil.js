@@ -97,10 +97,11 @@ function Perfil() {
                 ))}
             </div>
             <div>
+                <h2>Contratos</h2>
                 {error && <div>{error.contratos}</div>}
                 {contratoList.map((cont, index) => (
                     <div key={index}>
-                        <h2>Contratos</h2>
+                        
                         <p>Categoria: {cont.Categoria}</p>
                         <p>Monto: {cont.Monto}</p>
                         <p>Inicio: {cont.Inicio}</p>
@@ -109,10 +110,11 @@ function Perfil() {
             </div>
             
             <div>
+                <h2>Accidentes</h2>
                 {error && <div>{error.accidentes}</div>}
                 {accidentesList.map((acc, index) => (
                     <div key={index}>
-                        <h2>Accidentes</h2>
+                        
                         <p>Registro: {acc.Registro}</p>
                         <p>Fecha: {acc.Fecha}</p>
                         <p>Hora: {acc.Hora}</p>
@@ -120,10 +122,11 @@ function Perfil() {
                 ))}
             </div>
             <div>
+            <h2>Reclamos</h2>
                 {error && <div>{error.reclamos}</div>}
                 {reclamosList.map((recl, index) => (
                     <div key={index}>
-                        <h2>Reclamos</h2>
+                        
                         <p>Reclamo: {recl.Reclamo}</p>
                         <p>Fecha: {recl.Fecha}</p>
                         <p>Hora: {recl.Hora}</p>
