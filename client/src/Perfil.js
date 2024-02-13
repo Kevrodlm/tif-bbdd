@@ -2,6 +2,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './Componentes/Navbar';
+import './Perfil.css'
+import { Link } from 'react-router-dom';
 
 function Perfil() {
     const [datosList, setDatos] = useState([]);
@@ -78,64 +81,73 @@ function Perfil() {
     }, []);
 
     return (
-        <div>
-            <div>
-            {error && <div>{error.datos}</div>}
-                {datosList.map((datos, index) => (
-                    <div key={index}>
-                        <h2>Perfil</h2>
-                        <p>Nombre: {datos.Nombre}</p>
-                        <p>Apellidos: {datos.ApellidoP} {datos.ApellidoM}</p>
-                        <p>DNI: {datos.DNI}</p>
-                        <p>Email: {datos.Email}</p>
-                        <p>Fecha de nacimiento: {datos.Fecha_nacimiento}</p>
-                        <p>Género: {datos.Genero}</p>
-                        <p>Nacionalidad: {datos.Nacionalidad}</p>
-                        <p>Teléfono: {datos.Telefono}</p>
-                        <p>Dirección: {datos.direccion}</p>
-                    </div>
-                ))}
+        <>
+            <Navbar />
+            <div className="container">
+                <h2 className="section-title">Tu información:</h2>
+                <div className="text-center mt-3 mb-3">
+                    <h2 className="section-title">¿Quieres adquirir un nuevo servicio?</h2>
+                    <Link to="/comprar" className="btn btn-primary">
+                        Adquirir nuevo servicio
+                    </Link>
+                    <p></p>
+                    <Link to="/ActualizarPerfil" className="btn btn-success ml-3">
+                        Actualizar tu información
+                    </Link>
+                </div>
+                <div className="section">
+                    <h2 className="section-title">Perfil</h2>
+                    {error && <div className="error">{error.datos}</div>}
+                    {datosList.map((datos, index) => (
+                        <div key={index} className="data-item">
+                            <p><strong>Nombre:</strong> {datos.Nombre}</p>
+                            <p><strong>Apellidos:</strong> {datos.ApellidoP} {datos.ApellidoM}</p>
+                            <p><strong>DNI:</strong> {datos.DNI}</p>
+                            <p><strong>Email:</strong> {datos.Email}</p>
+                            <p><strong>Fecha de nacimiento:</strong> {datos.Fecha_nacimiento}</p>
+                            <p><strong>Género:</strong> {datos.Genero}</p>
+                            <p><strong>Nacionalidad:</strong> {datos.Nacionalidad}</p>
+                            <p><strong>Teléfono:</strong> {datos.Telefono}</p>
+                            <p><strong>Dirección:</strong> {datos.direccion}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className="section">
+                    <h2 className="section-title">Contratos</h2>
+                    {error && <div className="error">{error.contratos}</div>}
+                    {contratoList.map((cont, index) => (
+                        <div key={index} className="data-item">
+                            <p><strong>Categoria:</strong> {cont.Categoria}</p>
+                            <p><strong>Monto:</strong> {cont.Monto}</p>
+                            <p><strong>Inicio:</strong> {cont.Inicio}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className="section">
+                    <h2 className="section-title">Accidentes</h2>
+                    {error && <div className="error">{error.accidentes}</div>}
+                    {accidentesList.map((acc, index) => (
+                        <div key={index} className="data-item">
+                            <p><strong>Registro:</strong> {acc.Registro}</p>
+                            <p><strong>Fecha:</strong> {acc.Fecha}</p>
+                            <p><strong>Hora:</strong> {acc.Hora}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className="section">
+                    <h2 className="section-title">Reclamos</h2>
+                    {error && <div className="error">{error.reclamos}</div>}
+                    {reclamosList.map((recl, index) => (
+                        <div key={index} className="data-item">
+                            <p><strong>Reclamo:</strong> {recl.Reclamo}</p>
+                            <p><strong>Fecha:</strong> {recl.Fecha}</p>
+                            <p><strong>Hora:</strong> {recl.Hora}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div>
-                <h2>Contratos</h2>
-                {error && <div>{error.contratos}</div>}
-                {contratoList.map((cont, index) => (
-                    <div key={index}>
-                        
-                        <p>Categoria: {cont.Categoria}</p>
-                        <p>Monto: {cont.Monto}</p>
-                        <p>Inicio: {cont.Inicio}</p>
-                    </div>
-                ))}
-            </div>
-            
-            <div>
-                <h2>Accidentes</h2>
-                {error && <div>{error.accidentes}</div>}
-                {accidentesList.map((acc, index) => (
-                    <div key={index}>
-                        
-                        <p>Registro: {acc.Registro}</p>
-                        <p>Fecha: {acc.Fecha}</p>
-                        <p>Hora: {acc.Hora}</p>
-                    </div>
-                ))}
-            </div>
-            <div>
-            <h2>Reclamos</h2>
-                {error && <div>{error.reclamos}</div>}
-                {reclamosList.map((recl, index) => (
-                    <div key={index}>
-                        
-                        <p>Reclamo: {recl.Reclamo}</p>
-                        <p>Fecha: {recl.Fecha}</p>
-                        <p>Hora: {recl.Hora}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
+        </>
     );    
-    
 }
 
 export default Perfil;

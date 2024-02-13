@@ -28,7 +28,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          <Link to='/home' className='navbar-logo' onClick={closeMobileMenu}>
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             FREEofLICE .
             <i className="fa-solid fa-clipboard-check"></i>
           </Link>
@@ -51,13 +51,8 @@ function Navbar() {
                 Seguros y servicios
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/atencion' className='nav-links' onClick={closeMobileMenu}>
-                Atencion al Cliente
-              </Link>
-            </li>
           </ul>
-          <Link to='../Signup'> {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} </Link>
+          <Link to='../Signup'> {button && <Button buttonStyle='btn--outline'>Registrate</Button>} </Link>
         </div>
       </nav>
     </>

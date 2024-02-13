@@ -44,7 +44,7 @@ function ActualizarPerfil() {
     <Navbar></Navbar>
     <div className='background-container'>
         <div className='form-container'>
-            <h2>Registrate</h2>
+            <h2>Actualiza tus Datos</h2>
             <form action="" onSubmit={handleSubmit}>
                 <div className="row">
                     {/* Columna izquierda */}

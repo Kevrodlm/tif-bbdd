@@ -161,6 +161,36 @@ app.post("/comprar", (req, res) => {
     });
 });
 
+app.post("/actualizarPerfil", (req, res) => {
+    const usuario = req.body.usuario;
+    const pasword = req.body.password;
+    const dni = req.body.dni;
+    const nombre = req.body.nombre;
+    const apelli_pat = req.body.apelli_pat;
+    const apelli_mat = req.body.apelli_mat;
+    const fecha_nac = req.body.fecha_nac;
+    const genero = req.body.genero;
+    const nacionalidad = req.body.nacionalidad;
+    const email = req.body.email;
+    const direccion = req.body.direccion;
+    const telefono = req.body.telefono;
+
+    
+
+    db.query('CALL ActualizarCliente(?,?,?,?,?,?,?,?,?,?,?,?) ',
+        [dni, usuario, pasword, nombre, apelli_pat, apelli_mat, telefono, fecha_nac, nacionalidad, genero, direccion, email], (err, data) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send("Error al procesar la solicitud");
+            } else {
+                const mensaje = data[0][0].Resultado;
+                usuarioTemp = usuario;
+                return res.json(mensaje);
+            }
+        }
+    );
+});
+
 
 app.listen(3008,()=>{
     console.log("Corriendo en el puerto 3008")

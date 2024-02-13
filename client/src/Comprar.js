@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import './App.css'; // Importa tus estilos CSS
+import Navbar from './Componentes/Navbar';
+
 
 function Comprar() {
     const [serviciosList, setServicios] = useState([]);
@@ -73,6 +75,7 @@ function Comprar() {
 
     return (
         <>
+            <Navbar></Navbar>
             <table className="table table-striped">
                 <thead>
                     <tr>
